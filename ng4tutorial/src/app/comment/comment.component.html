@@ -1,0 +1,35 @@
+<div class="container all">
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+          <div class="card">
+              <div class="card-header">
+                <h3>{{post.title}}</h3>
+                
+              </div>
+              <div class="card">
+                <div class="card">
+                  <h5 class="card-body">{{post.body}}</h5>
+                  <ng-container *ngFor="let user of users">
+                    <a *ngIf="post.user_id==user.id" style="float:right" class="card-body" href="{{user.id}}/profile">{{user.name}}</a>
+                  </ng-container>
+                </div> 
+                <div *ngIf="cansee" class=card-body>
+                  Kommentare:
+                </div> 
+                <div class="card comments" *ngFor="let comment of comments">
+                  <small class="card-body ">{{comment.body}}</small>
+                  <ng-container *ngFor="let user of users">
+                    <a *ngIf="comment.user_id==user.id" style="float:right;" class="card-body" href="{{user.id}}/profile">{{user.name}}</a>
+                    <div class="flex">
+                        <a href="{{comment.id}}/editcomment" (click)="store(comment.body)"><button *ngIf="comment.user_id==user.id&&comment.user_id==current_user.id"  class="btn btn-primary item">Editieren</button></a>
+                        <button *ngIf="comment.user_id==user.id&&comment.user_id==current_user.id" (click)="delete(comment.id)" class="btn btn-primary item">Löschen</button>
+                    </div>  
+                  </ng-container>
+                </div>
+                <div *ngIf="cansee" class=card-body>
+                  <a href="{{post.id}}/addcomment"> <button class="btn btn-primary but">Kommentieren</button> </a>
+                </div> 
+          </div>
+      </div>
+  </div>
+</div>

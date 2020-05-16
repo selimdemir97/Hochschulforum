@@ -1,0 +1,25 @@
+
+.all{
+    margin-top:4%; 
+}
+.block{
+    margin-top: 1%
+}
+.block2{
+    margin-top: 3%
+}
+.flex{
+    display: flex;
+    
+}
+.item{
+    flex-grow: 1;
+}
+.btn-primary{
+    background-color: #4D4FFC;
+    border: #4D4FFC;
+  }
+  .card-header{
+    background-color:rgb(137, 139, 255);
+      color:white;
+  }

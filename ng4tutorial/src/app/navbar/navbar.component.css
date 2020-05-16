@@ -1,0 +1,22 @@
+.color{
+    color:rgb(126, 163, 233);
+}
+.mar{
+    width: 40%;
+    height: 30px;
+    font-size: 12px;
+}
+.navbar-toggler{
+    border-color:white;
+}
+.navbar-toggler-icon{
+    color:white;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.navbar{
+    background-color: #777777;
+}
+.color2{
+    border-top:solid #4D4FFC 1px;
+    color: #4D4FFC;
+}

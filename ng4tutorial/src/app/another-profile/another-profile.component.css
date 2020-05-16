@@ -1,0 +1,11 @@
+.all{
+    margin-top:4%; 
+}
+.btn-primary{
+    background-color: #4D4FFC;
+    border: #4D4FFC;
+  }
+  .card-header{
+    background-color:rgb(137, 139, 255);
+      color:white;
+  }

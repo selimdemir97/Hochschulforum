@@ -1,0 +1,29 @@
+<div class="container all">
+  <div class="row justify-content-center">
+      <div class="col-md-8 ">
+        <a href="/newpost"><button class="btn btn-primary col">Neuer Beitrag</button></a>
+        <input class="form-control mar" type="text" [(ngModel)]="name" (input)="search()" placeholder="Nach Titel suchen">
+          
+              <div *ngFor="let post of posts" class="posts">
+                
+                <div class=card>
+                  <a href="{{post.id}}/comments">
+                    <div class="card-header"><h5>{{post.title}}</h5></div>
+                  </a>  
+                    <div class="card-body" >
+                      <p class="post">{{post.body}} </p>
+                      <ng-container *ngFor="let user of users">
+                        <a *ngIf="post.user_id==user.id" class="right name" href="{{user.id}}/profile">{{user.name}}</a>
+                      </ng-container>
+                      <ng-container></ng-container>
+                      <div class="right"><p >{{post.likes}}</p> <button *ngIf="findlike(post.id)" (click)="checklike(post.id)" class="{{like2}}">{{like3}}</button></div>
+                      <div class="right"><p>{{post.dislikes}}</p><button *ngIf="finddislike(post.id)" (click)="checkdislike(post.id)" class="{{dislike2}}">{{dislike3}}</button></div>
+                      <div class="spb"><p>{{post.created_at | date: 'dd.MMMM, HH:mm'}}</p><button *ngIf="checkFavs(post.id)" (click)="favorite(post.id)" [ngClass]="btn" class="{{class2}} but">{{class3}}</button></div>
+                    </div>
+                  </div>
+                
+              </div>
+          
+      </div>
+  </div>
+</div>

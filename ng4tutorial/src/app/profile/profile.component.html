@@ -1,0 +1,99 @@
+<div style="margin-bottom:20px;" class="container all">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="block" class="card">
+                <div class="card-header">
+                    {{user.name}}
+                </div>
+                <div class="card">
+                    <div class=card-body>
+                    Email: {{user.email}}
+                    </div>
+                </div>
+                <div class="card">
+                    <div class=card-body>
+                    Erstellt am: {{user.created_at | date: 'dd.MMMM.yyyy'}}
+                    </div>
+                </div>
+                <div class="card">
+                    <div class=card-body>
+                        Beiträge geliked/disliked: {{sumLikes}}/{{sumDislikes}}
+                    </div>
+                </div>
+                <div class="card">
+                    <div class=card-body>
+                        Anzahl deiner Beiträge: {{sumPosts}}
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="{{user.id}}/editProfile" class="btn btn-primary">Benutzer bearbeiten</a>
+                </div>
+            </div>
+            <div class="block2 card">
+                <div class="card-header">
+                    Pinnwand:
+                </div>
+                    <form (ngSubmit)="wallPost()">
+                        <div class="card" style="margin:2%">
+                            <label for="inputComment" class="sr-only">Passwort</label>
+                            <textarea type="text" name="body" id="inputComment" class="form-control" [(ngModel)]="body" required></textarea>
+                        </div>
+                        <div class="card" >
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Eintrag erstellen</button>
+                        </div>
+                    </form>
+                 <ng-container *ngFor="let comment of comments">
+                     <div class="card"><p style="margin:5%">{{comment.body}}</p>
+                            <ng-container *ngFor="let user of users">
+                                    <a href="{{user.id}}/profile" style="margin:5%" *ngIf="user.id==comment.p_user_id">{{user.name}}</a>
+                            </ng-container>
+                     </div>
+                     <button (click)="deleteWall(comment.p_user_id,comment.user_id)" class="btn btn-primary but">Löschen</button>
+                 </ng-container>
+            </div>
+            <div class="block2 card">
+                <div class="card-header">
+                    Eigene Beiträge:
+                </div>
+                <ng-container *ngFor="let post of posts">
+                        <ng-container *ngIf="post.user_id==user.id">
+                            <div class="card">
+                                <div class=card-body>
+                                    <strong>{{post.title}}</strong>
+                                </div>
+                                <div class=card-body>
+                                    {{post.body}}
+                                </div>
+                                <div class="flex">
+                                    <button (click)="delete(post.id)" class="btn btn-primary but item">Löschen</button>
+                                    <a href="{{post.id}}/edit" (click)="store(post.title,post.body)" class="item btn btn-primary but">Bearbeiten</a>
+                                </div>
+                                
+                            </div>
+                        </ng-container>
+                </ng-container>
+            </div>
+            <div class="card block2">
+                <div class="card-header">
+                       Favoriten:
+                        
+                    </div>
+                <ng-container *ngFor="let favorite of favorites">
+                    <ng-container *ngFor="let post of posts">
+                        <ng-container *ngIf="favorite.user_id==user.id&&favorite.post_id==post.id">
+                            <div class="card">
+                                <div class=card-body>
+                                    <strong>{{post.title}}</strong>
+                                </div>
+                                <div class=card-body>
+                                    {{post.body}}
+                                </div>
+                            </div>
+                            <button (click)="deleteFav(favorite.user_id,favorite.post_id)" class="btn btn-primary but">Löschen</button>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

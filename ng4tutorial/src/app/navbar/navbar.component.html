@@ -1,0 +1,34 @@
+
+<nav class="navbar navbar-expand-lg navbar-light">
+        <!-- Brand -->
+        <input class="navbar-brand form-control mar" type="text" [(ngModel)]="name" (input)="search()" placeholder="Nach Namen suchen"> 
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="" style="color:white" class="link nav-link" routerLink="/login" *ngIf="!loggedIn">Anmelden</a>
+            </li>
+            <li class="nav-item">
+              <a href="" style="color:white"class="link nav-link" routerLink="/register" *ngIf="!loggedIn">Registrieren</a>
+            </li>
+            <li class="nav-item-right">
+                <a href="" style="color:white" class="link nav-link" (click)="viewUser($event)" *ngIf="loggedIn">{{user.name}}</a>
+              </li> 
+            <li class="nav-item">
+              <a href="" style="color:white" class="link nav-link" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
+            </li> 
+          </ul>
+        </div> 
+      </nav>
+      <div ><ng-container *ngIf='name.length>0'>
+        <ng-container *ngFor="let user2 of users">
+            <a class="nav-link color2" href="{{user2.id}}/profile">{{user2.name}}</a>
+        </ng-container>
+    </ng-container></div>
+

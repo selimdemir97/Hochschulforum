@@ -1,0 +1,28 @@
+<div class="text-center" >
+  <form class='form-signin' (ngSubmit)="onSubmit()">
+    <h1 style="margin-top: 10%" class="h3 mb-3 font-weight-normal">Registrierung</h1>
+    <div style="margin: 10%">
+      <label for="name">Name</label>
+      <input class="form-control" type="text" name="name" [(ngModel)]="name" id="name" >
+      <small style="color:red;" [hidden]="!error.name">{{error.name}}</small>
+    </div>
+    <div style="margin: 10%">
+      <label for="email">Email</label>
+      <input class="form-control" type="email" name="email" [(ngModel)]="email" >
+      <small style="color:red;" [hidden]="!error.email">{{error.email}}</small>
+    </div>
+    <div style="margin: 10%">
+      <label for="password">Passwort</label>
+      <input class="form-control" type="password" name="password" [(ngModel)]="password" id="password">
+      <small style="color:red;" [hidden]="!error.password">{{error.password}}</small>
+    </div>
+    <div style="margin: 10%">
+      <label for="password_confirm">Passwort bestätigen</label>
+      <input class="form-control" type="password" name="password_confirmation"  [(ngModel)]="password_confirmation" id="password_confirmation">
+      <small style="color:red;" [hidden]="!error.password">{{error.password}}</small>
+    </div>
+    <div style="margin: 10%">
+      <input class="btn btn-lg btn-primary btn-block"  type="submit" value="registrieren">
+    </div>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+
+  <div class="text-center" >
+    <form class="form-signin" (ngSubmit)="onSubmit()">
+      <h1 style="margin-top: 10%" class="h3 mb-3 font-weight-normal">Beitrag erstellen</h1>
+      <div style="margin: 10%">
+        <label for="inputTitle" class="sr-only">Titel</label>
+        <input type="text" name="title" id="inputTitle" class="form-control" [(ngModel)]="title" required>
+      </div>
+      <div style="margin: 10%">
+          <label for="inputPost" class="sr-only">Passwort</label>
+          <textarea type="text" name="post" id="inputPost" class="form-control" [(ngModel)]="body" required></textarea>
+          <small style="color:red;" [hidden]="!error">{{error}}</small>
+      </div>
+      <div>
+          <h3 style="margin-top: 10%" class="h3 mb-3 font-weight-normal">Wer soll es nicht sehen?</h3>
+        <ng-container *ngFor="let user2 of users">
+          <p *ngIf="user2.id!=user.id" style="margin: 1%" class="{{user2.class}}" (click)="selectUser(user2)">{{user2.name}}</p>
+        </ng-container>
+        
+      </div>
+      <div style="margin: 10%">
+          <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">erstellen</button>
+      </div>
+    </form>
+  </div>

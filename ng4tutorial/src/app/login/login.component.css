@@ -1,0 +1,21 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+input{
+    margin-top:1%;
+}
+label{
+    align-self: center;
+    margin-top:2%;
+}
+.btn-primary{
+    background-color: #4D4FFC;
+    border: #4D4FFC;
+  }
+  .card-header{
+    background-color:rgb(137, 139, 255);
+      color:white;
+  }

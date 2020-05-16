@@ -1,0 +1,13 @@
+
+  <div class="text-center" >
+      <form class="form-signin" (ngSubmit)="onSubmit()">
+        <h1 style="margin-top: 10%" class="h3 mb-3 font-weight-normal">Kommentar bearbeiten</h1>
+        <div style="margin: 10%">
+            <label for="inputComment" class="sr-only">Passwort</label>
+            <textarea type="text" name="post" id="inputComment" class="form-control" [(ngModel)]="body" required></textarea>
+        </div>
+        <div style="margin: 10%">
+            <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">erstellen</button>
+        </div>
+      </form>
+    </div>
