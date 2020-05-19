@@ -1,1 +1,2 @@
 # Hochschulforum
+Dies war meine erste Studienarbeit, in der ich ein Full-Stack Web-Development Projekt umsetzen musste. Im Backend wurde Laravel mit Phpmyadmin benutzt zusammen mit dem Frontend Framework Angular. In der Studienarbeit durften wir uns selber aussuchen, was wir erstellen wollen. Ich entschied mich für ein Forum mit User-Authentifizierung zu programmieren. Man kann Posts erstellen, sie für gewisse Benutzer einschränken, Freunde hinzufügen, Posts kommentieren und die Posts und Kommentare bewerten. 
